@@ -1,0 +1,1 @@
+sample_input = "../inputs/day1_sample.txt"
