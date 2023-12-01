@@ -1,6 +1,6 @@
 # Advent of Code 2023
 
-My attempts at solving the [Advent of Code 2023 puzzles]([url](https://adventofcode.com)https://adventofcode.com). 
+My attempts at solving the [Advent of Code 2023 puzzles](https://adventofcode.com). 
 This year, I'll try to do solutions in both Python and C++. 
 
 ## Running the Python code
