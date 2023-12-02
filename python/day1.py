@@ -1,8 +1,8 @@
 import argparse
 from aoc_utils import part_header
 
-sample_input = "inputs/day1_sample.txt"
-real_input = "inputs/day1.txt"
+sample_input = "inputs/day1/day1_sample.txt"
+real_input = "inputs/day1/day1.txt"
 
 
 def get_first_number(line: str):
@@ -28,9 +28,9 @@ def part_1(input: str, test: bool = False):
 @part_header(part=2)
 def part_2(testing: bool):
     if testing:
-        input = "inputs/day1_sample2.txt"
+        input = "inputs/day1/day1_sample2.txt"
     else:
-        input = "inputs/day1.txt"
+        input = "inputs/day1/day1.txt"
 
     number_strings = {
         "one": "1",
@@ -74,5 +74,5 @@ if __name__ == "__main__":
 
     input_file = sample_input if args.test else real_input
 
-    part_1(input_file)
+    part_1(input_file, args.test)
     part_2(args.test)
