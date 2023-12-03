@@ -13,6 +13,6 @@ if __name__ == "__main__":
 
     test_flag = "-t" if args.test else ""
 
-    print(f"Running day 1 on {'test' if args.test else 'real'} input\n")
+    print(f"Running day {args.day} on {'test' if args.test else 'real'} input\n")
 
     os.system(f"python {input_file} {test_flag}")
