@@ -37,7 +37,7 @@ def part_2(input_file: str, testing: bool):
     num_tickets = []
 
     with open(input_file) as fin:
-        for i, line in enumerate(fin):
+        for line in fin:
             winning_numbers, our_numbers = (
                 set(int(n) for n in l.split()) for l in line.split(":")[1].split("|")
             )
