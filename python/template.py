@@ -7,26 +7,26 @@ real_input = "inputs/day6/input.txt"
 
 @part_header(part=1)
 def part_1(input_file: str, testing: bool = False):
-    sum = 0
+    solution = 0
 
-    print(f"\n\tSolution: {sum}")
+    print(f"\n\tSolution: {solution}")
 
     if testing:
-        assert sum == 28
+        assert solution == 28
     else:
-        assert sum == 0
+        assert solution == 0
 
 
 @part_header(part=2)
 def part_2(input_file: str, testing: bool):
-    sum = 0
+    solution = 0
 
     print(f"\n\tNot yet implemented")
 
     if testing:
-        assert sum == 0
+        assert solution == 0
     else:
-        assert sum == 0
+        assert solution == 0
 
 
 if __name__ == "__main__":
