@@ -47,11 +47,7 @@ def part_1(input_file: str, testing: bool = False):
     step_number = 0
     while current_node != "ZZZ":
         current_step = steps[step_number % len(steps)]
-        # # print(f"{step_number}: {current_node}[{current_step}] ->", end="")
-        # if current_step == "R":
-        #     current_node = nodes[current_node][1]
-        # else:
-        #     current_node = nodes[current_node][0]
+        # print(f"{step_number}: {current_node}[{current_step}] ->", end="")
         current_node = next_step(nodes, current_node, current_step)
         # print(f" {current_node}")
         step_number += 1
