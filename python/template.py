@@ -12,7 +12,7 @@ def part_1(input_file: str, testing: bool = False):
     print(f"\n\tSolution: {solution}")
 
     if testing:
-        assert solution == 28
+        assert solution == 0
     else:
         assert solution == 0
 
