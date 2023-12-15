@@ -1,9 +1,5 @@
-import argparse
 from ..aoc_utils import part_header
 from itertools import combinations
-
-sample_input = "inputs/day11/sample.txt"
-real_input = "inputs/day11/input.txt"
 
 
 @part_header(part=1)
@@ -18,7 +14,7 @@ def part_1(input_file: str, testing: bool = False):
     doubled_rows = 0
 
     for i, line in enumerate(lines):
-        print(line)
+        # print(line)
         if "#" not in line:
             doubled_rows += 1
         for j, char in enumerate(line):
@@ -35,7 +31,7 @@ def part_1(input_file: str, testing: bool = False):
         dist = abs(s[0] - f[0]) + abs(s[1] - f[1])
         solution += dist
 
-    print(galaxies)
+    # print(galaxies)
     print(f"\n\tSolution: {solution}")
 
     if testing:
@@ -56,7 +52,7 @@ def part_2(input_file: str, testing: bool):
     doubled_rows = 0
 
     for i, line in enumerate(lines):
-        print(line)
+        # print(line)
         if "#" not in line:
             doubled_rows += 1
         for j, char in enumerate(line):
@@ -77,19 +73,6 @@ def part_2(input_file: str, testing: bool):
     print(f"\n\tSolution: {solution}")
 
     if testing:
-        assert solution == 0
+        assert solution == 82000210
     else:
-        assert solution == 9795148
-
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "-t", "--test", action="store_true", help="Whether or not to use the test input"
-    )
-    args = parser.parse_args()
-
-    input_file = sample_input if args.test else real_input
-
-    part_1(input_file, args.test)
-    part_2(input_file, args.test)
+        assert solution == 650672493820

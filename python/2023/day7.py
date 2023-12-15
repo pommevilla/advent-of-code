@@ -1,9 +1,5 @@
-import argparse
 from ..aoc_utils import part_header
 from collections import Counter, OrderedDict
-
-sample_input = "inputs/day7/sample.txt"
-real_input = "inputs/day7/input.txt"
 
 
 class Hand:
@@ -11,6 +7,11 @@ class Hand:
         self.hand = hand
         self.hand_counts = Counter(self.hand)
         self.jokers = jokers
+        if not jokers:
+            cards = "A, K, Q, J, T, 9, 8, 7, 6, 5, 4, 3, 2"
+        else:
+            cards = "A, K, Q, J, T, 9, 8, 7, 6, 5, 4, 3, 2, J"
+        self.card_ranks = [card for card in cards.split(", ")][::-1]
 
     def __gt__(self, other):
         these_card_counts = self.get_card_counts()
@@ -53,16 +54,19 @@ class Hand:
 
     def tiebreaker(self, other):
         for card in zip(self.hand, other.hand):
-            if card_ranks.index(card[0]) > card_ranks.index(card[1]):
+            if self.card_ranks.index(card[0]) > self.card_ranks.index(card[1]):
                 return True
-            elif card_ranks.index(card[0]) < card_ranks.index(card[1]):
+            elif self.card_ranks.index(card[0]) < self.card_ranks.index(card[1]):
                 return False
 
     def __repr__(self):
         return f"Hand({self.hand})"
 
 
-def read_hand_bids(input_file: str, jokers: bool = False) -> OrderedDict[Hand, int]:
+def read_hand_bids(
+    input_file: str,
+    jokers: bool = False,
+) -> OrderedDict[Hand, int]:
     hand_bids = open(input_file).read().split("\n")
 
     hand_bids = OrderedDict(
@@ -78,7 +82,10 @@ def read_hand_bids(input_file: str, jokers: bool = False) -> OrderedDict[Hand, i
 
 
 @part_header(part=1)
-def part_1(input_file: str, testing: bool = False):
+def part_1(
+    input_file: str,
+    testing: bool = False,
+):
     solution = 0
 
     hand_bids = read_hand_bids(input_file)
@@ -98,6 +105,7 @@ def part_1(input_file: str, testing: bool = False):
 @part_header(part=2)
 def part_2(input_file: str, testing: bool):
     solution = 0
+    cards = "A, K, Q, T, 9, 8, 7, 6, 5, 4, 3, 2, J"
 
     hand_bids = read_hand_bids(input_file, jokers=True)
 
@@ -111,21 +119,3 @@ def part_2(input_file: str, testing: bool):
         assert solution == 6839
     else:
         assert solution == 252113488
-
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "-t", "--test", action="store_true", help="Whether or not to use the test input"
-    )
-    args = parser.parse_args()
-
-    input_file = sample_input if args.test else real_input
-
-    cards = "A, K, Q, J, T, 9, 8, 7, 6, 5, 4, 3, 2"
-    card_ranks = [card for card in cards.split(", ")][::-1]
-    part_1(input_file, args.test)
-
-    cards = "A, K, Q, T, 9, 8, 7, 6, 5, 4, 3, 2, J"
-    card_ranks = [card for card in cards.split(", ")][::-1]
-    part_2(input_file, args.test)

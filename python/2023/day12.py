@@ -1,8 +1,4 @@
-import argparse
 from ..aoc_utils import part_header
-
-sample_input = "inputs/day12/sample.txt"
-real_input = "inputs/day12/input.txt"
 
 
 cache = {}
@@ -53,9 +49,9 @@ def part_1(input_file: str, testing: bool = False):
     for i, line in enumerate(lines):
         springs, groups = line.split()
         groups = [int(x) for x in groups.split(",")]
-        print(f"{springs} -> {groups}")
+        # print(f"{springs} -> {groups}")
         solutions_found = count_solutions(springs, groups)
-        print(f"\tFound {solutions_found} solutions\n")
+        # print(f"\tFound {solutions_found} solutions\n")
         solution += solutions_found
 
     # print(lines)
@@ -76,29 +72,16 @@ def part_2(input_file: str, testing: bool):
 
     for i, line in enumerate(lines):
         springs, groups = line.split()
-        print(f"{springs} -> {groups}")
+        # print(f"{springs} -> {groups}")
         springs = "?".join([springs] * 5)
         groups = [int(x) for x in groups.split(",")] * 5
         solutions_found = count_solutions(springs, groups)
-        print(f"\tFound {solutions_found} solutions\n")
+        # print(f"\tFound {solutions_found} solutions\n")
         solution += solutions_found
 
-    print(f"\tSolution: {solution}")
+    print(f"\n\tSolution: {solution}")
 
     if testing:
         assert solution == 525152
     else:
         assert solution == 7139671893722
-
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "-t", "--test", action="store_true", help="Whether or not to use the test input"
-    )
-    args = parser.parse_args()
-
-    input_file = sample_input if args.test else real_input
-
-    part_1(input_file, args.test)
-    part_2(input_file, args.test)

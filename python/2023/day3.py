@@ -1,9 +1,5 @@
-import argparse
 from ..aoc_utils import part_header
 import re
-
-sample_input = "inputs/day3/day3_sample.txt"
-real_input = "inputs/day3/day3.txt"
 
 
 @part_header(part=1)
@@ -90,16 +86,3 @@ def part_2(input_file: str, testing: bool):
         assert sum == 467835
     else:
         assert sum == 87449461
-
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "-t", "--test", action="store_true", help="Whether or not to use the test input"
-    )
-    args = parser.parse_args()
-
-    input_file = sample_input if args.test else real_input
-
-    part_1(input_file, args.test)
-    part_2(input_file, args.test)

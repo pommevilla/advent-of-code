@@ -1,8 +1,4 @@
-import argparse
 from ..aoc_utils import part_header
-
-sample_input = "inputs/day5/sample.txt"
-real_input = "inputs/day5/input.txt"
 
 
 @part_header(part=1)
@@ -73,25 +69,11 @@ def part_2(input_file: str, testing: bool):
                     new.append((start, end))
             seeds = new
 
-    print(min(seeds))
     smallest_destination = min(seeds)[0]
 
     print(f"\n\tSolution: {smallest_destination}")
 
     if testing:
         assert smallest_destination == 46
-    # else:
-    #     assert smallest_destination == 0
-
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "-t", "--test", action="store_true", help="Whether or not to use the test input"
-    )
-    args = parser.parse_args()
-
-    input_file = sample_input if args.test else real_input
-
-    part_1(input_file, args.test)
-    part_2(input_file, args.test)
+    else:
+        assert smallest_destination == 41222968

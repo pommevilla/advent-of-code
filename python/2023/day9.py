@@ -1,9 +1,5 @@
-import argparse
 from ..aoc_utils import part_header
 from itertools import pairwise
-
-sample_input = "inputs/day9/sample.txt"
-real_input = "inputs/day9/input.txt"
 
 
 def find_next_number(seq: list[int]) -> int:
@@ -57,16 +53,3 @@ def part_2(input_file: str, testing: bool):
         assert solution == 2
     else:
         assert solution == 1062
-
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "-t", "--test", action="store_true", help="Whether or not to use the test input"
-    )
-    args = parser.parse_args()
-
-    input_file = sample_input if args.test else real_input
-
-    part_1(input_file, args.test)
-    part_2(input_file, args.test)

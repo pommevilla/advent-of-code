@@ -1,8 +1,4 @@
-import argparse
 from ..aoc_utils import part_header
-
-sample_input = "inputs/day8/sample.txt"
-real_input = "inputs/day8/input.txt"
 
 
 def get_node_dict(nodes: list[list[str]]) -> dict[str, list[str]]:
@@ -52,7 +48,7 @@ def part_1(input_file: str, testing: bool = False):
         # print(f" {current_node}")
         step_number += 1
 
-    print(f"\n\tNumber of steps: {step_number}")
+    print(f"\n\tSolution: {step_number}")
 
     solution = step_number
 
@@ -67,7 +63,7 @@ def part_2(input_file: str, testing: bool):
     from math import lcm
 
     if testing:
-        input_file = "inputs/day8/sample2.txt"
+        input_file = "inputs/2023/day8/sample2.txt"
 
     solution = 0
 
@@ -80,22 +76,9 @@ def part_2(input_file: str, testing: bool):
 
     solution = min_walk_length
 
-    print(f"Solution: {solution}")
+    print(f"\n\tSolution: {solution}")
 
     if testing:
         assert solution == 6
     else:
         assert solution == 12357789728873
-
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "-t", "--test", action="store_true", help="Whether or not to use the test input"
-    )
-    args = parser.parse_args()
-
-    input_file = sample_input if args.test else real_input
-
-    part_1(input_file, args.test)
-    part_2(input_file, args.test)

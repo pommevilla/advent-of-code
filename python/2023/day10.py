@@ -1,9 +1,6 @@
-import argparse
 from ..aoc_utils import part_header
 from collections import deque
 
-sample_input = "inputs/day10/sample.txt"
-real_input = "inputs/day10/input.txt"
 
 dirs = {
     "N": (-1, 0),
@@ -96,7 +93,6 @@ def part_1(input_file: str, testing: bool = False):
     bfs = deque([(starting_node, 1) for starting_node in starting_nodes])
     distances = {starting_pipe: 0}
 
-    print(f"Starting at {starting_nodes}")
     while bfs:
         current_node, current_distance = bfs.popleft()
         # print(f"Current_node: {current_node}")
@@ -117,7 +113,7 @@ def part_1(input_file: str, testing: bool = False):
     if testing:
         assert solution == 8
     else:
-        assert solution == 0
+        assert solution == 6831
 
 
 @part_header(part=2)
@@ -130,16 +126,3 @@ def part_2(input_file: str, testing: bool):
         assert solution == 0
     else:
         assert solution == 0
-
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "-t", "--test", action="store_true", help="Whether or not to use the test input"
-    )
-    args = parser.parse_args()
-
-    input_file = sample_input if args.test else real_input
-
-    part_1(input_file, args.test)
-    part_2(input_file, args.test)

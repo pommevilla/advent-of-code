@@ -1,11 +1,7 @@
-import argparse
 import re
 from typing import Optional
 from ..aoc_utils import part_header
 from collections import defaultdict
-
-sample_input = "inputs/day15/sample.txt"
-real_input = "inputs/day15/input.txt"
 
 
 def hash_string(string: str) -> int:
@@ -99,16 +95,3 @@ def part_2(input_file: str, testing: bool):
         assert solution == 145
     else:
         assert solution == 237806
-
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "-t", "--test", action="store_true", help="Whether or not to use the test input"
-    )
-    args = parser.parse_args()
-
-    input_file = sample_input if args.test else real_input
-
-    part_1(input_file, args.test)
-    part_2(input_file, args.test)
