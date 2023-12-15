@@ -1,5 +1,5 @@
 import argparse
-from aoc_utils import part_header
+from ..aoc_utils import part_header
 from itertools import zip_longest
 
 sample_input = "inputs/day4/sample.txt"

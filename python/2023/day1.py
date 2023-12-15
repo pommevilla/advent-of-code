@@ -1,5 +1,5 @@
 import argparse
-from aoc_utils import part_header
+from ..aoc_utils import part_header
 
 sample_input = "inputs/day1/day1_sample.txt"
 real_input = "inputs/day1/day1.txt"

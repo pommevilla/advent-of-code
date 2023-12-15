@@ -1,5 +1,5 @@
 import argparse
-from aoc_utils import part_header
+from ..aoc_utils import part_header
 from collections import Counter, OrderedDict
 
 sample_input = "inputs/day7/sample.txt"

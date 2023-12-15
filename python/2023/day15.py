@@ -1,7 +1,7 @@
 import argparse
 import re
 from typing import Optional
-from aoc_utils import part_header
+from ..aoc_utils import part_header
 from collections import defaultdict
 
 sample_input = "inputs/day15/sample.txt"

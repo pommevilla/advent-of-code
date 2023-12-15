@@ -1,5 +1,5 @@
 import argparse
-from aoc_utils import part_header
+from ..aoc_utils import part_header
 from collections import deque
 
 sample_input = "inputs/day10/sample.txt"
@@ -88,8 +88,6 @@ def part_1(input_file: str, testing: bool = False):
         for j, char in enumerate(line):
             if char == "S":
                 starting_pipe = (i, j)
-
-            # elif char != ".":
             else:
                 nodes[(i, j)] = get_neighbors((i, j), char)
             # print(f"\t{j}: {char}")
