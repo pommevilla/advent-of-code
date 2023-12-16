@@ -135,7 +135,7 @@ def part_1(input_file: str, testing: bool = False):
 
     grid = open(input_file).read().splitlines()
 
-    solution = energize_tiles(grid, print_out=True)
+    solution = energize_tiles(grid, print_out=testing)
 
     print(f"\n\tSolution: {solution}")
 
