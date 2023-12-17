@@ -66,9 +66,6 @@ def part_2(input_file: str, testing: bool):
 
     scrubber_rating = int(lines[0], 2)
 
-    print(f"Oxygen Rating: {oxygen_rating}")
-    print(f"Scrubber Rating: {scrubber_rating}")
-
     solution = oxygen_rating * scrubber_rating
 
     print(f"\n\tSolution: {solution}")
@@ -76,4 +73,4 @@ def part_2(input_file: str, testing: bool):
     if testing:
         assert solution == 230
     else:
-        assert solution == 1759818555
+        assert solution == 7928162
