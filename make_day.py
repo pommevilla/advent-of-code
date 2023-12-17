@@ -19,7 +19,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    print("Prepping day {args.day} from {args.year}")
+    print(f"Prepping day {args.day} from {args.year}")
 
     # Create inputs/year/dayX/input.txt and inputs/year/dayX/sample.txt
     os.makedirs(f"inputs/{args.year}/day{args.day}", exist_ok=True)
