@@ -39,10 +39,11 @@ def part_2(input_file: str, testing: bool):
 
     mean_pos = sum(crabs) // len(crabs)
 
+    closest_crab = min(crabs)
     furthest_crab = max(crabs)
 
     lowest_fuel_cost = 1e9
-    for i in range(furthest_crab):
+    for i in range(closest_crab, furthest_crab):
         fuel_cost = sum([calc_fuel_cost(i, crab) for crab in crabs])
         if fuel_cost < lowest_fuel_cost:
             lowest_fuel_cost = fuel_cost
