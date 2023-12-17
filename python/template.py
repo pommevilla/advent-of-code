@@ -1,4 +1,4 @@
-from ..aoc_utils import part_header
+from ..aoc_utils import part_header, highlight
 
 
 @part_header(part=1)
