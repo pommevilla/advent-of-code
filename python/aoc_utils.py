@@ -22,4 +22,9 @@ def highlight(text: str, color: str = "red", padding: int = 0) -> str:
         "white": "\x1b[37m",
     }
 
-    return f"{colors[color]}{text:{padding}}\x1b[0m"
+    if color in colors:
+        this_color = colors[color]
+    else:
+        this_color = color
+
+    return f"{this_color}{text:{padding}}\x1b[0m"
