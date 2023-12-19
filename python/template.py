@@ -1,4 +1,4 @@
-from ..aoc_utils import part_header, highlight
+from ..aoc_utils import part_header, highlight, timer_func
 
 
 @part_header(part=1)
