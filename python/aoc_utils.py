@@ -1,4 +1,11 @@
+from time import time
+
+
 def part_header(part: int):
+    """
+    Prints a header and some new line spacing for the Advent of Code solutions
+    """
+
     def decorator(func):
         def wrapper(*args, **kwargs):
             print(f"############ Part {part} ############")
@@ -11,6 +18,9 @@ def part_header(part: int):
 
 
 def highlight(text: str, color: str = "red", padding: int = 0) -> str:
+    """
+    Deocorates the text by returning the string with appropriate color code.
+    """
     colors = {
         "black": "\x1b[30m",
         "red": "\x1b[0;30;41m",
@@ -28,3 +38,19 @@ def highlight(text: str, color: str = "red", padding: int = 0) -> str:
         this_color = color
 
     return f"{this_color}{text:{padding}}\x1b[0m"
+
+
+def timer_func(func):
+    """
+    Prints the execution time of the decorated function
+    """
+
+    def wrap_func(*args, **kwargs):
+        t1 = time()
+        result = func(*args, **kwargs)
+        t2 = time()
+        # print(f"Function {func.__name__!r} executed in {(t2 - t1):.5f}s")
+        print(f"\n\tTime: {(t2 - t1):.5f}s")
+        return result
+
+    return wrap_func
